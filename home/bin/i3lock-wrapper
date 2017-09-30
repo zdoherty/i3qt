@@ -1,8 +1,14 @@
 #!/bin/sh
-revert() {
-    xset dpms 0 0 0
+# Set some more aggressive display sleeping parameters when locked
+xset +dpms dpms 30 30 120
+
+# And set them back to normal when we're awake
+revert () {
+    . .local/xinitrc.d/displaysleep
 }
 trap revert SIGHUP SIGINT SIGTERM
-xset +dpms dpms 5 5 5
-i3lock -n -c 000000
+
+# Lock the screen!
+i3lock -f -e -n -c 000000
 revert
+

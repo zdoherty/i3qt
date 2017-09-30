@@ -1,3 +1,2 @@
-xset s off
-xset -dpms
-xset s noblank
+#!/bin/sh
+xset +dpms dpms 300 300 600
