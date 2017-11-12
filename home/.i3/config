@@ -38,15 +38,19 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 
+# Move + resize
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+bindsym $mod+y resize shrink width 10 px
+bindsym $mod+u resize grow height 10 px
+bindsym $mod+i resize shrink height 10 px
+bindsym $mod+o resize grow width 10 px
 
 bindsym $mod+Shift+apostrophe split h
 bindsym $mod+Shift+semicolon split v
@@ -84,14 +88,10 @@ bindsym $mod+x scratchpad show
 bindsym $mod+Shift+x move window to scratchpad
 
 # media window factory
-bindsym $mod+y fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 2540 54
+bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 2540 54
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -118,7 +118,7 @@ bar {
 # autostart
 #
 # automatically lock computer after 5 minutes of inactivity
-exec_always --no-startup-id xautolock -time 5 -locker $HOME/.i3/i3exit lock
+exec_always --no-startup-id xautolock -time 5 -locker "$HOME/.i3/i3exit lock"
 
 # set the background
 exec_always --no-startup-id feh --bg-fill --no-xinerama $HOME/.config/wallpaper.jpg
