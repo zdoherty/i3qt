@@ -25,6 +25,17 @@ set_from_resource $white       color15 #000000
 set $black       #282828
 set $darkblack   #1d2021
 set $transparent #00000000
+
+# From LuckSmithxyz/voidrice
+#For PULSEAUDIO/PAMIXER
+set $inc --no-startup-id pamixer --allow-boost -i 5
+set $biginc --no-startup-id pamixer --allow-boost -i 15
+set $dec --no-startup-id pamixer --allow-boost -d 5
+set $bigdec --no-startup-id pamixer --allow-boost -d 15
+set $mute --no-startup-id pamixer --allow-boost -t
+set $micmute --no-startup-id ~/.i3/mutemic
+set $truemute --no-startup-id pamixer -m
+
 # gaps
 new_window 1pixel
 gaps inner 15
@@ -86,6 +97,19 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+x scratchpad show
 bindsym $mod+Shift+x move window to scratchpad
+
+# media keys
+
+#Volume keys
+bindsym $mod+plus        exec $inc
+bindsym $mod+Shift+plus  exec $biginc
+bindsym $mod+minus       exec $dec
+bindsym $mod+Shift+minus exec $bigdec
+#These are the extra media keys that some keyboards have.
+bindsym XF86AudioMute        exec $mute
+bindsym XF86AudioMicMute     exec $micmute
+bindsym XF86AudioLowerVolume exec $dec
+bindsym XF86AudioRaiseVolume exec $inc
 
 # media window factory
 bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 2540 54
