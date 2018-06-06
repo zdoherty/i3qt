@@ -1,4 +1,25 @@
-!! terminal colours
+!! ir-black color theme -------
+!*.background: #131313
+!*.foreground: #F2F2F2
+!*.color0: #4E4E4E
+!*.color8: #555555
+!*.color1: #FF6C60
+!*.color9: #FF0000
+!*.color2: #A8FF60
+!*.color10: #00FF00
+!*.color3: #FFFFB6
+!*.color11: #FFFF00
+!*.color4: #96CBFF
+!*.color12: #0000FF
+!*.color5: #FF73FF
+!*.color13: #FF00FF
+!*.color6: #9DFFFF
+!*.color14: #00FFFF
+!*.color7: #EEEEEE
+!*.color15: #FFFFFF
+
+!! molokai color theme
+! terminal colours
 *foreground:#CCCCCC
 *background:#1B1D1E
 
@@ -27,16 +48,16 @@
 *color7:    #CCCCCC
 *color15:   #F8F8F2
 
-
 !! Make urxvt prettier
 URxvt*font:             xft:Inconsolata for Powerline:pixelsize=16
 URxvt*scrollBar:        false
 URxvt*scrollColor:      S_base01
 URxvt*title:            terminal
 URxvt*termName:         rxvt-unicode-256color
+URxvt*dynamicColors:    on
 URxvt*visualBell:       true
-URxvt*depth:            32
-URxvt*background:       rgba:0000/0000/0200/d800
+URxvt*depth:            256
+URxvt*intensityStyles:  true
 
 !! font rendering
 Xft*antialias:          true

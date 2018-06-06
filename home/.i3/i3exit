@@ -4,14 +4,18 @@ case "$1" in
     lock)
         $HOME/bin/i3lock-wrapper
         ;;
+    sleep)
+        $HOME/bin/i3lock-wrapper &
+        sudo /usr/sbin/pm-suspend
+        ;;
     logout)
         i3-msg exit
         ;;
     reboot)
-        sudo shutdown -r now
+        sudo /sbin/shutdown -r now
         ;;
     shutdown)
-        sudo shutdown -h now
+        sudo /sbin/shutdown -h now
         ;;
     *)
         echo "Usage: $0 [lock|logout|suspend|hibernate|reboot|shutdown]"
