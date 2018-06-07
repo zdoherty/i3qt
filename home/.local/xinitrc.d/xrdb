@@ -1,7 +1,0 @@
-#!/bin/bash
-
-XR="$HOME/.Xresources"
-if [ -f $XR ]; then
-    xrdb -load $XR
-fi
-
