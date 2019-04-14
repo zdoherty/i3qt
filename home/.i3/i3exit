@@ -2,10 +2,10 @@
 
 case "$1" in
     lock)
-        $HOME/bin/i3lock-wrapper
+        $HOME/.i3/i3lock-wrapper
         ;;
     sleep)
-        $HOME/bin/i3lock-wrapper &
+        $HOME/.i3/i3lock-wrapper &
         sudo /usr/sbin/pm-suspend
         ;;
     logout)
@@ -18,7 +18,7 @@ case "$1" in
         sudo /sbin/shutdown -h now
         ;;
     *)
-        echo "Usage: $0 [lock|logout|suspend|hibernate|reboot|shutdown]"
+        echo "Usage: $0 [lock|sleep|logout|reboot|shutdown]"
         exit 2
 esac
 
