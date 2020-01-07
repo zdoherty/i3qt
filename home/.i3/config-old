@@ -1,7 +1,7 @@
 # i3 config file
 set $mod Mod4
 set $editor vim
-set $terminal urxvt
+set $terminal st
 set $browser firefox
 
 # Fonts for titles
@@ -60,10 +60,10 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-bindsym $mod+y resize shrink width 25 px
-bindsym $mod+u resize grow height 25 px
-bindsym $mod+i resize shrink height 25 px
-bindsym $mod+o resize grow width 25 px
+bindsym $mod+y resize shrink width 10 px
+bindsym $mod+u resize grow height 10 px
+bindsym $mod+i resize shrink height 10 px
+bindsym $mod+o resize grow width 10 px
 
 bindsym $mod+Shift+apostrophe split h
 bindsym $mod+Shift+semicolon split v
@@ -118,11 +118,9 @@ bindsym XF86ScreenSaver exec $lock
 # modes
 mode "session" {
     bindsym l mode "default", exec --no-startup-id $HOME/.i3/i3exit lock
-    bindsym shift+l mode "default", exec --no-startup-id $HOME/.i3/i3exit logout
+    bindsym o mode "default", exec --no-startup-id $HOME/.i3/i3exit logout
     bindsym r mode "default", exec --no-startup-id $HOME/.i3/i3exit restart
     bindsym h mode "default", exec --no-startup-id $HOME/.i3/i3exit shutdown
-    bindsym e mode "default", exec --no-startup-id $HOME/.i3/i3exit sleep
-    bindsym shift+e mode "default", exec --no-startup-id $HOME/.i3/i3exit hibernate
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -134,12 +132,10 @@ bar {
 }
 
 # autostart
-exec_always --no-startup-id local-xinit
-exec_always --no-startup-id nm-applet
 exec_always --no-startup-id xautolock -time 5 -locker "$HOME/.i3/i3exit lock"
 exec_always --no-startup-id feh --bg-fill --no-xinerama $HOME/.i3/wallpaper.jpg
-exec --no-startup-id urxvt -title prompt -e "$HOME/.i3/start-agent.sh"
+exec --no-startup-id st -c prompt "$HOME/.i3/start-agent.sh"
 # exec_always --no-startup-id compton -f -c -i 0.9 -b
 
-for_window [title="^prompt$"] floating enable, resize set 600 400, border pixel 1;
-for_window [class="^Pavucontrol$"] floating enable, sticky enable, resize set 600 px 480 px, move container to position 1319 580, border pixel 1;
+for_window [instance="^prompt$"] floating enable, resize set 600 400, border pixel 1;
+for_window [class="^Pavucontrol$"] floating enable, resize set 600 px 720 px, border pixel 1;

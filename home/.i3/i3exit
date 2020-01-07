@@ -4,21 +4,27 @@ case "$1" in
     lock)
         $HOME/.i3/i3lock-wrapper
         ;;
-    sleep)
-        $HOME/.i3/i3lock-wrapper &
-        sudo /usr/sbin/pm-suspend
-        ;;
     logout)
         i3-msg exit
         ;;
-    reboot)
-        sudo /sbin/shutdown -r now
+    sleep)
+        $HOME/.i3/i3lock-wrapper &
+        sleep 0.5
+        sudo systemctl suspend-then-hibernate
+        ;;
+    hibernate)
+        $HOME/.i3/i3lock-wrapper &
+        sleep 0.5
+        sudo systemctl hibernate
+        ;;
+    restart)
+        sudo systemctl reboot
         ;;
     shutdown)
-        sudo /sbin/shutdown -h now
+        sudo systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 [lock|sleep|logout|reboot|shutdown]"
+        echo "Usage: $0 [lock|logout|sleep|hibernate|restart|shutdown]"
         exit 2
 esac
 

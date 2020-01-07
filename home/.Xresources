@@ -93,3 +93,4 @@ rofi.bw:                0
 rofi.opacity:           "10"
 rofi.hide-scrollbar:    true
 rofi.width:             30
+rofi.font:              Inconsolata for Powerline 14
